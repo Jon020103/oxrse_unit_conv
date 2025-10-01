@@ -28,6 +28,8 @@ def click_convert(number, unit, to):
 def convert(number: classes.Number, unit: str, to: str):
     logging.debug(f"Call: {number}: {unit} -> {to}")
 
+    unit = unit.lower()
+
     my_unit: units.Unit = getattr(units, unit)
     if not isinstance(my_unit, classes.BaseUnit):
         raise TypeError(f"{unit} does not correspond to a known unit.")

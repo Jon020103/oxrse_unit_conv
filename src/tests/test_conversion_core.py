@@ -1,6 +1,7 @@
 import unittest
 from oxrse_unit_conv.meta import classes
 from oxrse_unit_conv.units import kilometer, m, m2, m3, s, hour
+from oxrse_unit_conv.main import convert
 
 
 class TestConversionCore(unittest.TestCase):
@@ -25,6 +26,11 @@ class TestConversionCore(unittest.TestCase):
         self.assertEqual(km2.to_si(1), 1_000_000)
         self.assertEqual(km2.to_unit(10, km2), 10)
 
+    def test_main(self):
+        self.assertEqual(convert(3, 'h', 'minute'), 180)
+        self.assertEqual(convert(3, 'H', 'minute'), 180)
+
+    
     def test_nonstandard_inversion(self):
         hertz = classes.Unit(
             name='hertz',
