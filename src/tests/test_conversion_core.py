@@ -24,10 +24,8 @@ class TestConversionCore(unittest.TestCase):
         )
         self.assertEqual(km2.to_si(1), 1_000_000)
         self.assertEqual(km2.to_unit(10, km2), 10)
+        self.assertEqual(2,100)
     
-    def failingtest(self):
-        self.assertEqual(2,4)
-
     def test_nonstandard_inversion(self):
         hertz = classes.Unit(
             name='hertz',
